@@ -13,9 +13,6 @@ pipeline {
       }
     }
     stage('Test') {
-      environment {
-        CI = 'true'
-      }
       steps {
         sh './jenkins/scripts/test.sh'
       }
@@ -32,5 +29,8 @@ pipeline {
         cleanWs(deleteDirs: true)
       }
     }
+  }
+  environment {
+    CI = 'true'
   }
 }
