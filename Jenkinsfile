@@ -27,5 +27,10 @@ pipeline {
         sh './jenkins/scripts/kill.sh'
       }
     }
+    stage('Teardown Workspace') {
+      steps {
+        cleanWs(deleteDirs: true)
+      }
+    }
   }
 }
